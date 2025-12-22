@@ -231,7 +231,31 @@
                     Internal layout: modular wiring and control board design for low-cost maintenance and upgrades.
                 </p>
             </div>
+                    <!-- NEW: MFCC visualization (evidence of noise reduction) -->
+            <div class="mt-10 max-w-6xl mx-auto bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-3xl overflow-hidden shadow-2xl p-8 border border-blue-700/50 animate-fade-in-up delay-500">
+              <div class="text-center mb-8">
+                <h4 class="text-3xl font-bold gradient-text">Model Evidence: MFCC Comparison</h4>
+                <p class="text-gray-400 mt-2 text-lg">
+                  Visualizing the difference between raw mixed audio and denoised output (environment + speech).
+                </p>
+              </div>
 
+              <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800/60 p-6 rounded-2xl border border-gray-700">
+                  <img src="js/image/4_mixed_denoised.png" alt="MFCC - Denoised Output (Environment + Speech)" class="w-full rounded-xl shadow-lg object-contain">
+                  <p class="text-gray-400 mt-4 text-center font-medium">
+                    Denoised Output MFCC (Environment + Speech)
+                  </p>
+                </div>
+
+                <div class="bg-gray-800/60 p-6 rounded-2xl border border-gray-700">
+                  <img src="js/image/3_mixed_raw.png" alt="MFCC - Raw Mixed Output (Environment + Speech)" class="w-full rounded-xl shadow-lg object-contain">
+                  <p class="text-gray-400 mt-4 text-center font-medium">
+                    Raw Mixed Output MFCC (Environment + Speech)
+                  </p>
+                </div>
+              </div>
+            </div>
         </div>
     </section>
 
