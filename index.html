@@ -24,7 +24,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 72vh;
+            min-height: 78vh;
             text-align: center;
         }
         .hero-overlay {
@@ -179,14 +179,19 @@
             <a href="model.html" class="btn-glow animate-fade-in-up delay-400">Explore the Innovation</a>
 
             <!-- ✅ NEW: downward floating chevrons under the button -->
-            <div class="mt-7 text-center text-gray-400 text-3xl select-none">
+          <div class="mt-7 text-center">
+              <button type="button"
+                    class="mt-3 text-center text-gray-400 text-3xl select-none cursor-pointer"
+                    onclick="scrollToNext()"
+                    aria-label="Scroll down">
                 <span class="arrow-float">&lt;&lt;</span>
-            </div>
+              </button>
+          </div>
         </div>
     </header>
 
     <!-- NEW: Quick value props (cards) -->
-    <section class="py-20 relative overflow-hidden">
+    <section id="next-section" class="py-20 relative overflow-hidden">
         <div class="bg-pattern-dots"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-3 gap-10 text-center -mt-16">
@@ -280,6 +285,12 @@
                 navbar.classList.add('bg-black/70');
             }
         });
+        function scrollToNext() {
+            const target = document.querySelector('#next-section');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
     </script>
 </body>
 </html>
