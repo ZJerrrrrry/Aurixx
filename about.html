@@ -132,6 +132,13 @@
                         radial-gradient(circle at 70% 55%, rgba(167, 139, 250, 0.14) 0%, transparent 70%);
             z-index: 1;
         }
+        .brand-grid {
+      display: grid;
+      gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+      .brand-grid { grid-template-columns: 1.2fr 0.8fr; }
+  }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -170,7 +177,47 @@
     </header>
 
     <div class="pt-6">
+    <!-- NEW: Brand intro (casual + with logo image) -->
+<section id="brand" class="py-20 relative overflow-hidden">
+  <div class="bg-pattern-dots"></div>
 
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-6xl mx-auto bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-3xl overflow-hidden shadow-2xl p-10 border border-blue-700/50 animate-fade-in-up">
+      <div class="text-center mb-10">
+        <h3 class="text-4xl font-bold gradient-text">Our Brand</h3>
+        <p class="text-gray-300 mt-2 text-lg">
+          Not “medical equipment”. Just smart audio people actually want to wear.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <!-- Left: logo image -->
+        <div class="bg-gray-900/40 border border-gray-700 rounded-3xl p-8 card-glow">
+          <div class="flex items-center justify-center">
+            <!-- ✅ 换成你的 logo/品牌名图 -->
+            <img
+              src="js/image/brand-name.png"
+              alt="Aurix logo / wordmark"
+              class="max-h-48 w-full object-contain"
+            >
+          </div>
+          <p class="text-gray-500 text-sm text-center mt-4">
+            This is our logo + brand name.
+          </p>
+        </div>
+
+        <!-- Right: explanation (more human) -->
+        <div class="bg-gray-800/60 border border-gray-700 rounded-3xl p-8 card-glow">
+          <h4 class="text-2xl font-bold mb-4">Why we call it “Aurix”</h4>
+
+          <p class="text-gray-300 leading-relaxed">
+            Aurix comes from <span class="text-white font-semibold">Auris</span> (Latin for “ear” and “hearing”) plus <span class="text-white font-semibold">X</span> (technology, the unknown, and what comes next). Together it means <span class="text-white font-semibold">“hearing power / an acoustic core”</span>—a name that feels short, clean, and unapologetically tech. We wanted something that, in one second, makes people think of hearing, sound waves, and even a chip-like system working quietly in the background. That’s the point: Aurix shouldn’t feel like a “medical label.” It should feel like smart everyday audio—so low-income communities can wear it with confidence, get clearer speech in noise, and stay safer in real-world environments. The midnight-black base with a blue/purple glow reinforces that feeling: modern, discreet, and “smart tech”, not clinical.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         <!-- KEEP: your team section, but upgraded layout + consistency -->
         <section id="team" class="py-24 relative overflow-hidden">
             <div class="bg-pattern-dots"></div>
