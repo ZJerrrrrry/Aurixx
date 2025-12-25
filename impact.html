@@ -37,14 +37,8 @@
             opacity: 0;
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
@@ -70,7 +64,6 @@
             overflow: hidden;
             box-shadow: 0 0 15px rgba(126, 87, 194, 0.4); /* subtle glow */
         }
-
         .btn-glow::before {
             content: '';
             position: absolute;
@@ -84,12 +77,10 @@
             transform: translate(-50%, -50%) scale(0);
             opacity: 0;
         }
-
         .btn-glow:hover::before {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
         }
-
         .btn-glow:hover {
             box-shadow: 0 0 25px rgba(126, 87, 194, 0.6), 0 0 40px rgba(96, 165, 250, 0.5);
             transform: translateY(-2px);
@@ -115,6 +106,22 @@
             height: 100%;
             z-index: -1;
         }
+
+        .hero-section {
+            background: linear-gradient(180deg, #1A202C 0%, #0d1117 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 35% 35%, rgba(30, 64, 175, 0.18) 0%, transparent 65%),
+                        radial-gradient(circle at 70% 55%, rgba(167, 139, 250, 0.14) 0%, transparent 70%);
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -131,36 +138,304 @@
         </div>
     </nav>
 
-    <div class="pt-20">
-        <section id="impact" class="py-24 relative overflow-hidden">
+    <!-- HERO -->
+    <header class="hero-section pt-28 pb-16">
+        <div class="hero-overlay"></div>
+        <div class="bg-pattern-dots"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-5 animate-fade-in-up">
+                    Social Impact: <span class="gradient-text">Democratizing hearing health</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-9 animate-fade-in-up delay-200">
+                    Aurix is built exclusively for low-income communities—especially blue-collar workers and delivery riders in hazardous noise environments.
+                    We focus on safety, dignity, and access: a reliable multifunctional device at <span class="text-white font-semibold">500–800 RMB</span>.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+                    <a href="#scale" class="btn-glow">See the problem scale</a>
+                    <a href="#access" class="btn-glow">How we remove barriers</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="pt-6">
+
+        <!-- SCALE -->
+        <section id="scale" class="py-20 relative overflow-hidden">
             <div class="bg-pattern-dots"></div>
             <div class="container mx-auto px-6 relative z-10">
-                <h3 class="text-4xl font-bold text-center mb-16 gradient-text animate-fade-in-up">Democratizing Hearing Health: Our Vision</h3>
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div class="text-left space-y-8 animate-fade-in-up delay-100">
-                        <div class="bg-gray-800/60 p-8 rounded-xl shadow-md border border-gray-700">
-                            <h5 class="font-bold text-2xl text-blue-400 mb-3">Solve the affordability gap</h5>
-                            <p class="text-gray-300 leading-relaxed">
-                                Priced at 500–800 RMB—about 1/10 of many traditional imported devices—built for low-income users such as blue-collar workers and delivery riders, so technology isn’t a luxury for the few.
-                            </p>
-                        </div>
-                        <div class="bg-gray-800/60 p-8 rounded-xl shadow-md border border-gray-700">
-                            <h5 class="font-bold text-2xl text-blue-400 mb-3">Improve workplace safety</h5>
-                            <p class="text-gray-300 leading-relaxed">
-                                Help workers hear alarms and instructions in high-noise factories and chaotic traffic environments—reducing injury risk and protecting lives.
-                            </p>
-                        </div>
+                <h3 class="text-4xl font-bold text-center mb-6 gradient-text animate-fade-in-up">
+                    The gap is massive—and it’s economic
+                </h3>
+                <p class="max-w-4xl mx-auto text-center text-gray-300 leading-relaxed mb-14 animate-fade-in-up delay-100">
+                    The universal barrier is price. High-end hearing aids exist, but are systematically inaccessible to low-income users.
+                    The result is low adoption and untreated hearing loss at enormous scale.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-10 text-center">
+                    <div class="bg-gray-800/60 p-10 rounded-2xl shadow-xl card-glow border border-gray-700 animate-fade-in-up delay-100">
+                        <div class="text-blue-400 text-5xl mb-4">&lt; 5%</div>
+                        <h4 class="text-2xl font-bold mb-2">China adoption rate</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Hearing aid penetration in China remains below 5%—far behind developed nations.
+                        </p>
                     </div>
-                    <div class="flex flex-col justify-center bg-gradient-to-br from-blue-900 to-indigo-900 text-white p-12 rounded-3xl shadow-2xl animate-fade-in-up delay-300 border border-blue-700">
-                        <p class="text-8xl font-extrabold mb-4 animate-pulse-slow">&lt; 5%</p>
-                        <p class="text-3xl font-semibold opacity-90 mb-6">Hearing-aid adoption rate among people with hearing loss in China</p>
-                        <p class="text-lg opacity-70 leading-relaxed">
-                            We’re committed to breaking this inequality with innovation—so every hardworking person can “hear the world clearly” and enjoy equal access to communication.
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl shadow-xl card-glow border border-gray-700 animate-fade-in-up delay-200">
+                        <div class="text-blue-400 text-5xl mb-4">67.2M</div>
+                        <h4 class="text-2xl font-bold mb-2">People affected (China)</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Individuals with moderate-to-severe hearing impairment—yet most remain without devices.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl shadow-xl card-glow border border-gray-700 animate-fade-in-up delay-300">
+                        <div class="text-blue-400 text-5xl mb-4">401.4M</div>
+                        <h4 class="text-2xl font-bold mb-2">Need, globally</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Among those who need hearing aids, ~83% do not use them—largely due to prohibitive pricing.
                         </p>
                     </div>
                 </div>
+
+                <div class="mt-12 max-w-5xl mx-auto bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-3xl overflow-hidden shadow-2xl p-10 border border-blue-700/50 animate-fade-in-up delay-400">
+                    <h4 class="text-2xl font-bold mb-3">Why this is an equity issue</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Untreated hearing loss increases risk, isolation, and long-term economic burden. When access depends on wealth,
+                        the working class gets left behind. Aurix is designed to break that barrier.
+                    </p>
+                </div>
             </div>
         </section>
+
+        <div class="section-divider container mx-auto"></div>
+
+        <!-- WHO (ONLY) WE SERVE -->
+
+        <!-- IMPACT (PERSONAL + MACRO) -->
+        <section id="impact" class="py-20 relative overflow-hidden">
+            <div class="bg-pattern-dots"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h3 class="text-4xl font-bold text-center mb-14 gradient-text animate-fade-in-up">
+                    Impact, measured in daily life
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-100">
+                        <div class="flex items-start gap-4">
+                            <div class="text-blue-400 text-4xl">🛡️</div>
+                            <div>
+                                <h4 class="text-2xl font-bold mb-2">Personal-level safety</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    By restoring auditory clarity, Aurix reduces the risk of accidents associated with hearing loss—especially in industrial and traffic settings—while improving day-to-day communication.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-200">
+                        <div class="flex items-start gap-4">
+                            <div class="text-blue-400 text-4xl">🤝</div>
+                            <div>
+                                <h4 class="text-2xl font-bold mb-2">Psychological dignity</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    Hearing loss often becomes isolation. Aurix helps break that cycle by restoring self-esteem, social connection, and the confidence to participate.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-300">
+                        <div class="flex items-start gap-4">
+                            <div class="text-blue-400 text-4xl">⚖️</div>
+                            <div>
+                                <h4 class="text-2xl font-bold mb-2">Macro-level social justice</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    We expand access for the working class by shattering the high-price barrier. Higher adoption can reduce the long-term social and economic burden of untreated hearing loss.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-400">
+                        <div class="flex items-start gap-4">
+                            <div class="text-blue-400 text-4xl">🌍</div>
+                            <div>
+                                <h4 class="text-2xl font-bold mb-2">A replicable model</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    Aurix bridges the gap between unaffordable medical devices and cheap consumer amplifiers—creating an accessibility-first model that can scale across communities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center animate-fade-in-up delay-500">
+                    <a href="model.html" class="btn-glow">See the architecture that makes it affordable</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider container mx-auto"></div>
+
+        <!-- ACCESS + BARRIERS -->
+        <section id="access" class="py-20 relative overflow-hidden">
+            <div class="bg-pattern-dots"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h3 class="text-4xl font-bold text-center mb-14 gradient-text animate-fade-in-up">
+                    How we remove the real barriers
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-10 items-stretch">
+                    <div class="bg-gradient-to-br from-gray-800/70 to-gray-900/70 p-10 rounded-3xl border border-blue-700/50 shadow-2xl animate-fade-in-up delay-100">
+                        <h4 class="text-2xl font-bold mb-4">The “Iron Triangle”: affordable, functional, practical</h4>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Aurix is priced at <span class="text-white font-semibold">500–800 RMB</span> to democratize access for low-income workers.
+                            We focus on real-world function in high-noise environments and a practical user experience.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-800/60 border border-gray-700 rounded-2xl p-6 text-center">
+                                <div class="text-blue-400 text-3xl mb-2">🔊</div>
+                                <div class="text-gray-300 font-semibold">AI noise reduction</div>
+                                <div class="text-gray-500 text-sm mt-1">Tuned for speech + safety signals</div>
+                            </div>
+                            <div class="bg-gray-800/60 border border-gray-700 rounded-2xl p-6 text-center">
+                                <div class="text-blue-400 text-3xl mb-2">🔁</div>
+                                <div class="text-gray-300 font-semibold">Dual-mode</div>
+                                <div class="text-gray-500 text-sm mt-1">Hearing assist ↔ Bluetooth entertainment</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-3xl border border-gray-700 shadow-xl animate-fade-in-up delay-200">
+                        <h4 class="text-2xl font-bold mb-4">No intimidating fitting. Reachable channels.</h4>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Traditional fitting processes are expensive, complex, and discouraging.
+                            Aurix simplifies acquisition so users can purchase through direct-to-consumer channels.
+                        </p>
+                        <ul class="text-gray-300 space-y-3 leading-relaxed">
+                            <li>• Direct-to-consumer availability via online platforms</li>
+                            <li>• Community clinics for trusted recommendations and access</li>
+                            <li>• Worksite pilots to validate safety and usability</li>
+                            <li>• Platform-agnostic listening (standard earphones supported)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-10 max-w-6xl mx-auto bg-gray-800/40 border border-gray-700 rounded-3xl p-10 animate-fade-in-up delay-300">
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700">
+                            <div class="text-blue-400 text-4xl mb-3">💡</div>
+                            <h5 class="text-xl font-bold mb-2">Price barrier</h5>
+                            <p class="text-gray-400 leading-relaxed">
+                                Cut cost with a wearable box-style architecture, enabling low-income access without sacrificing reliability.
+                            </p>
+                        </div>
+                        <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700">
+                            <div class="text-blue-400 text-4xl mb-3">🧭</div>
+                            <h5 class="text-xl font-bold mb-2">Logistics barrier</h5>
+                            <p class="text-gray-400 leading-relaxed">
+                                Simple purchase and use—replacing intimidating professional workflows with a user-friendly model.
+                            </p>
+                        </div>
+                        <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700">
+                            <div class="text-blue-400 text-4xl mb-3">🕶️</div>
+                            <h5 class="text-xl font-bold mb-2">Stigma barrier</h5>
+                            <p class="text-gray-400 leading-relaxed">
+                                A modern multifunction form factor that feels like smart audio—not a visible medical label.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="section-divider container mx-auto"></div>
+
+        <!-- VALIDATION + ROADMAP -->
+        <section id="roadmap" class="py-20 relative overflow-hidden">
+            <div class="bg-pattern-dots"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h3 class="text-4xl font-bold text-center mb-14 gradient-text animate-fade-in-up">
+                    Validation & rollout: prove → pilot → scale
+                </h3>
+
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-100">
+                        <div class="text-blue-400 text-5xl mb-6">1️⃣</div>
+                        <h4 class="text-2xl font-bold mb-3">Prototype milestones</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            A working prototype demonstrates stable Bluetooth, seamless mode switching, and basic noise cancellation.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-200">
+                        <div class="text-blue-400 text-5xl mb-6">2️⃣</div>
+                        <h4 class="text-2xl font-bold mb-3">Real-world pilots</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Small-scale pilot tests with food delivery riders to refine durability, weatherproofing, and comfort during long shifts.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-300">
+                        <div class="text-blue-400 text-5xl mb-6">3️⃣</div>
+                        <h4 class="text-2xl font-bold mb-3">Partnership + certification</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Community clinics and labor unions support B2B2C trust; medical device certification can unlock insurance payments and lower out-of-pocket costs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 max-w-6xl mx-auto bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-3xl p-10 border border-blue-700/50 shadow-2xl animate-fade-in-up delay-400">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-3">Sustainable affordability</h4>
+                            <p class="text-gray-300 leading-relaxed">
+                                Our price window stays accessible because the cost structure is engineered for it—efficient hardware BOM and assembly,
+                                plus a scalable, volume-driven approach.
+                            </p>
+                            <div class="mt-6 flex flex-wrap gap-3">
+                                <a href="model.html" class="btn-glow">Back to Innovation Model</a>
+                                <a href="story.html" class="btn-glow">Why we built Aurix</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800/60 border border-gray-700 rounded-2xl p-8">
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="bg-gray-900/40 border border-gray-700 rounded-xl p-5">
+                                    <div class="text-blue-400 text-3xl mb-2">500–800</div>
+                                    <div class="text-gray-300 font-semibold">RMB retail price</div>
+                                </div>
+                                <div class="bg-gray-900/40 border border-gray-700 rounded-xl p-5">
+                                    <div class="text-blue-400 text-3xl mb-2">~100</div>
+                                    <div class="text-gray-300 font-semibold">RMB hardware BOM</div>
+                                </div>
+                                <div class="bg-gray-900/40 border border-gray-700 rounded-xl p-5">
+                                    <div class="text-blue-400 text-3xl mb-2">~20</div>
+                                    <div class="text-gray-300 font-semibold">RMB assembly labor</div>
+                                </div>
+                                <div class="bg-gray-900/40 border border-gray-700 rounded-xl p-5">
+                                    <div class="text-blue-400 text-3xl mb-2">DTC</div>
+                                    <div class="text-gray-300 font-semibold">Lower access friction</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-500 text-sm mt-5 text-center">
+                                Numbers shown are internal targets described in the project brief.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 text-center">
+                        <a href="about.html" class="btn-glow">Meet the team</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </div>
 
     <footer class="bg-black text-gray-500 py-12 text-center border-t border-gray-800">
