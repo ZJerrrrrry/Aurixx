@@ -24,7 +24,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 70vh;
+            min-height: 72vh;
             text-align: center;
         }
         .hero-overlay {
@@ -70,6 +70,22 @@
         .delay-300 { animation-delay: 0.3s; }
         .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
+
+        /* ✅ NEW: Downward double-chevron (<< rotated) + gentle floating */
+        @keyframes fadeInUpArrow {
+            from { opacity: 0; transform: translateY(18px) rotate(-90deg); }
+            to   { opacity: 1; transform: translateY(0) rotate(-90deg); }
+        }
+        @keyframes bobArrow {
+            0%, 100% { transform: translateY(0) rotate(-90deg); }
+            50%      { transform: translateY(10px) rotate(-90deg); }
+        }
+        .arrow-float {
+            opacity: 0;
+            display: inline-block;
+            animation: fadeInUpArrow 0.8s ease-out forwards, bobArrow 1.8s ease-in-out infinite;
+            animation-delay: 0.6s, 1.5s;
+        }
 
         /* Custom glow button */
         .btn-glow {
@@ -154,13 +170,18 @@
         <div class="hero-overlay"></div>
         <div class="relative z-10 p-8">
             <!-- ✅ 保持你的标题不变 -->
-            <h2 class="text-5xl md:text-7xl font-extrabold mb-6 mt-20 animate-fade-in-up">
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-6 mt-40 animate-fade-in-up">
                 <span class="gradient-text">Hear</span> the world, starting from the <span class="gradient-text">heart</span>
             </h2>
             <p class="text-xl md:text-3xl opacity-90 mb-10 animate-fade-in-up delay-200">
                 Breaking cost and stigma—redefining hearing devices for low-income communities
             </p>
             <a href="model.html" class="btn-glow animate-fade-in-up delay-400">Explore the Innovation</a>
+
+            <!-- ✅ NEW: downward floating chevrons under the button -->
+            <div class="mt-7 text-center text-gray-400 text-3xl select-none">
+                <span class="arrow-float">&lt;&lt;</span>
+            </div>
         </div>
     </header>
 
