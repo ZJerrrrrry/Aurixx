@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Story | Aurix</title>
+    <title>Aurix | Team Story</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif, "Microsoft YaHei";
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
-            background-color: #0d1117; /* Dark background */
-            color: #e2e8f0; /* Light text */
+            overflow-x: hidden;
+            background-color: #0d1117;
+            color: #e2e8f0;
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif, "Microsoft YaHei";
@@ -22,37 +22,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent; /* Fallback for browsers that don't support text-fill-color */
+            color: transparent;
         }
         .card-glow {
-            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3), 0 0 30px rgba(167, 139, 250, 0.2);
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.25), 0 0 30px rgba(167, 139, 250, 0.18);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card-glow:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 25px rgba(96, 165, 250, 0.5), 0 0 40px rgba(167, 139, 250, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 0 25px rgba(96, 165, 250, 0.45), 0 0 40px rgba(167, 139, 250, 0.35);
         }
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-
-        /* Custom glow button */
         .btn-glow {
             position: relative;
             background-image: linear-gradient(to right, #60a5fa 0%, #a78bfa 100%);
@@ -63,14 +42,12 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.3s ease;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(126, 87, 194, 0.4); /* subtle glow */
+            box-shadow: 0 0 15px rgba(126, 87, 194, 0.35);
         }
-
         .btn-glow::before {
             content: '';
             position: absolute;
@@ -84,37 +61,69 @@
             transform: translate(-50%, -50%) scale(0);
             opacity: 0;
         }
-
         .btn-glow:hover::before {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
         }
-
         .btn-glow:hover {
-            box-shadow: 0 0 25px rgba(126, 87, 194, 0.6), 0 0 40px rgba(96, 165, 250, 0.5);
+            box-shadow: 0 0 25px rgba(126, 87, 194, 0.55), 0 0 40px rgba(96, 165, 250, 0.45);
+            transform: translateY(-2px);
+        }
+        .btn-ghost {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .btn-ghost:hover {
+            border-color: rgba(96, 165, 250, 0.7);
+            box-shadow: 0 0 18px rgba(96, 165, 250, 0.22);
             transform: translateY(-2px);
         }
 
-        /* Section dividers with subtle gradient */
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(96, 165, 250, 0.3) 50%, rgba(255,255,255,0) 100%);
-            margin-top: 5rem;
-            margin-bottom: 5rem;
+        .hero-section {
+            background: linear-gradient(180deg, #1A202C 0%, #0d1117 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
         }
-
-        /* Subtle background patterns for sections */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(30, 64, 175, 0.18) 0%, transparent 55%),
+                        radial-gradient(circle at 80% 60%, rgba(167, 139, 250, 0.14) 0%, transparent 55%);
+            z-index: 1;
+        }
         .bg-pattern-dots {
             background-image: radial-gradient(#1e3a8a 1px, transparent 1px);
             background-size: 20px 20px;
-            opacity: 0.1;
+            opacity: 0.08;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            inset: 0;
+            z-index: 0;
         }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(96, 165, 250, 0.25) 50%, rgba(255,255,255,0) 100%);
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -131,31 +140,171 @@
         </div>
     </nav>
 
-    <div class="pt-20">
-        <section id="story" class="py-24 relative overflow-hidden">
-            <div class="bg-pattern-dots"></div>
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="flex flex-col md:flex-row items-center gap-16">
-                    <div class="md:w-1/2 animate-fade-in-up">
-                        <h3 class="text-4xl font-bold mb-6 gradient-text">Not just technology—<br>but human care</h3>
-                        <p class="text-lg leading-relaxed mb-6 text-gray-300">
-                            When I was younger, my grandpa used to tell me stories. But later, he gradually stopped hearing clearly—calling him for dinner took several tries, and at family gatherings he could only sit quietly and nod. When it came to hearing aids, he stubbornly refused: “If I wear that, isn’t it just admitting I’m old and hard of hearing?”
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6 text-gray-300">
-                            Watching him retreat into a lonely corner because he feared people’s judgment, I realized that 42% of people with hearing loss avoid wearing devices because they look too obvious. That pushed me to use my knowledge of acoustics and computer science to build something discreet and affordable—for my grandpa, and for countless workers who deserve to be heard.
+    <!-- HERO -->
+    <header class="hero-section pt-28 pb-12 relative">
+        <div class="hero-overlay"></div>
+        <div class="bg-pattern-dots"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-fade-in-up">
+                    A story about dignity, not just technology.
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-300 leading-relaxed animate-fade-in-up delay-200">
+                    Aurix started from a simple question: why should hearing support look like a “label” — especially for people who already carry enough pressure?
+                </p>
+
+                <div class="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300">
+                    <a href="#origin" class="btn-glow">Read the Origin</a>
+                    <a href="model.html" class="btn-ghost">Jump to the Prototype</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ORIGIN STORY -->
+    <section id="origin" class="py-20 relative overflow-hidden">
+        <div class="bg-pattern-dots"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">The moment we couldn’t ignore</h2>
+                    <p class="text-gray-300 leading-relaxed mb-5">
+                        When I was younger, my grandfather used to tell me stories every day. Over time, he began to miss words — then sentences — then entire conversations.
+                        Dinner calls needed repeating. At family gatherings, he smiled and nodded, but stayed quiet.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-5">
+                        The hardest part wasn’t the hearing loss. It was what came with it: the fear of being seen as “old,” “weak,” or “different.”
+                        When someone suggested a hearing aid, he refused: <span class="text-white font-semibold">“If it’s on my ear, everyone will know.”</span>
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        That feeling — stigma plus cost — is why many people delay support until it’s too late. We wanted to build something people would actually wear,
+                        without feeling labeled.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 p-10 rounded-3xl shadow-2xl border border-blue-700/40 card-glow animate-fade-in-up delay-200">
+                    <blockquote class="text-white text-xl md:text-2xl font-semibold italic border-l-4 border-blue-400 pl-6">
+                        “Turn stigma into a sense of smart tech — and make it affordable for those who need it most.”
+                    </blockquote>
+                    <p class="text-gray-400 text-right mt-4">— Aurix Mission</p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- USER PERSONAS -->
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-3xl font-bold mb-4 text-center gradient-text animate-fade-in-up">Who we’re building for</h3>
+                      <p class="max-w-3xl mx-auto text-center text-gray-300 leading-relaxed mb-10 animate-fade-in-up delay-100">
+                          Aurix is built exclusively for low-income communities. Every design decision—from form factor to cost control—is made to serve people who are most often priced out and overlooked.
+                      </p>
+
+                      <div class="grid md:grid-cols-3 gap-8">
+                          <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-100">
+                              <h4 class="text-xl font-bold mb-2">Low-income factory workers</h4>
+                              <p class="text-gray-400 leading-relaxed">
+                                  Long shifts in constant noise, limited access to medical support, and high safety pressure—clear speech matters.
+                              </p>
+                          </div>
+                          <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-200">
+                              <h4 class="text-xl font-bold mb-2">Low-income delivery riders</h4>
+                              <p class="text-gray-400 leading-relaxed">
+                                  Traffic noise, frequent calls, and tight income margins—hearing support must be discreet and affordable.
+                              </p>
+                          </div>
+                          <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-300">
+                              <h4 class="text-xl font-bold mb-2">Low-income seniors</h4>
+                              <p class="text-gray-400 leading-relaxed">
+                                  Many need help but can’t justify high costs—our priority is accessibility without stigma.
+                              </p>
+                          </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="bg-pattern-dots"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-3xl md:text-4xl font-bold mb-10 gradient-text text-center animate-fade-in-up">
+                    The problem with existing options
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-10 items-start">
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up">
+                        <h4 class="text-2xl font-bold mb-4">Too expensive for the people who need it most</h4>
+                        <ul class="text-gray-300 space-y-3 leading-relaxed">
+                            <li>• Advanced miniaturized devices often mean higher price.</li>
+                            <li>• Maintenance, fitting, and replacement parts increase total cost.</li>
+                            <li>• For low-income communities, the decision becomes “hearing vs. living expenses.”</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800/60 p-10 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-100">
+                        <h4 class="text-2xl font-bold mb-4">Stigma + discomfort reduces adoption</h4>
+                        <ul class="text-gray-300 space-y-3 leading-relaxed">
+                            <li>• Visible devices can feel like a “label.”</li>
+                            <li>• Ear-worn hardware can be uncomfortable for long shifts.</li>
+                            <li>• Many people delay support and lose social connection gradually.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-10 bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-3xl p-10 border border-blue-700/40 shadow-2xl animate-fade-in-up delay-200">
+                    <h4 class="text-2xl font-bold mb-4">So we asked: what if we change the form factor?</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Instead of forcing all the expensive components to fit inside the ear, Aurix moves core processing into a belt-clip “smart hub.”
+                        That lets us reduce manufacturing cost, improve repairability, and keep the ear-side discreet.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TURNING POINT + PRINCIPLES -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="bg-pattern-dots"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-3xl md:text-4xl font-bold mb-10 gradient-text text-center animate-fade-in-up">
+                    Our turning point: “Smart tech” instead of a “label”
+                </h3>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-100">
+                        <h4 class="text-xl font-bold mb-2">Discreet by design</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Looks and feels like everyday audio gear — easier to accept, easier to wear.
                         </p>
                     </div>
-                    <div class="md:w-1/2 bg-gradient-to-br from-blue-900/50 to-indigo-900/50 p-10 rounded-3xl shadow-2xl animate-fade-in-up delay-200 border border-blue-700/50">
-                        <blockquote class="text-white text-2xl font-semibold italic border-l-4 border-blue-400 pl-6">
-                            “We aim to close the hearing-health gap for low-income communities in China—turning the ‘label’ of a hearing aid into the confidence of smart tech.”
-                        </blockquote>
-                        <p class="text-gray-400 text-right mt-4">— Aurix Team's Vision</p>
+                    <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-200">
+                        <h4 class="text-xl font-bold mb-2">Affordable architecture</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Move complexity out of the ear; build modular, repairable, and upgradable parts.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700 card-glow animate-fade-in-up delay-300">
+                        <h4 class="text-xl font-bold mb-2">Safety first</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Prioritize speech and warnings in noisy environments, reducing preventable risks.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center animate-fade-in-up delay-400">
+                    <div class="inline-flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="model.html" class="btn-glow">See how Aurix works</a>
+                        <a href="impact.html" class="btn-ghost">Explore impact & rollout</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
+    <!-- CTA FOOTER -->
     <footer class="bg-black text-gray-500 py-12 text-center border-t border-gray-800">
         <p>&copy; 2025 Aurix Team</p>
         <p class="mt-2 text-sm">Empower every voice. Redefine connection.</p>
@@ -163,11 +312,7 @@
 
     <script>
         // Intersection Observer for fade-in-up animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
