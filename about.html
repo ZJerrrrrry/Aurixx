@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurix | Empower Every Voice - Advanced</title>
+    <title>About Us | Aurix</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,25 +16,6 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif, "Microsoft YaHei";
             color: #ffffff;
-        }
-        .hero-section {
-            background: linear-gradient(180deg, #1A202C 0%, #0d1117 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(30, 64, 175, 0.15) 0%, transparent 70%);
-            z-index: 1;
         }
         .gradient-text {
             background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%);
@@ -145,22 +126,38 @@
                 <a href="story.html" class="text-gray-300 hover:text-blue-400 transition transform hover:-translate-y-0.5">Team Story</a>
                 <a href="model.html" class="text-gray-300 hover:text-blue-400 transition transform hover:-translate-y-0.5">Innovation Model</a>
                 <a href="impact.html" class="text-gray-300 hover:text-blue-400 transition transform hover:-translate-y-0.5">Social Impact</a>
-                <a href="about.html" class="text-gray-300 hover:text-blue-400 transition transform hover:-translate-y-0.5">About Us</a>
+                <a href="about.html" class="text-blue-400 transition transform hover:-translate-y-0.5">About Us</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="relative z-10 p-8">
-            <h2 class="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in-up"><span class="gradient-text">Hear</span> the world, starting from the <span class="gradient-text">heart</span></h2>
-            <p class="text-xl md:text-3xl opacity-90 mb-10 animate-fade-in-up delay-200">Breaking cost and stigma—redefining hearing devices for low-income communities</p>
-            <a href="model.html" class="btn-glow animate-fade-in-up delay-400">Explore the Innovation</a>
-        </div>
-    </header>
-
-    <div class="section-divider container mx-auto"></div>
-
+    <div class="pt-20">
+        <section id="team" class="py-24 relative overflow-hidden">
+            <div class="bg-pattern-dots"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h3 class="text-4xl font-bold mb-16 gradient-text animate-fade-in-up">Meet Our Innovator Team</h3>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="bg-gray-800/60 p-8 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-100 border border-gray-700">
+                        <img src="js/image/zjr.jpg" alt="Jerry Zhang" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-gray-600">
+                        <h5 class="font-bold text-2xl text-white mb-2">Jerry Zhang</h5>
+                        <p class="text-blue-400 text-lg">AI Algorithm R&amp;D</p>
+                        <p class="text-gray-400 text-sm mt-3">Lead algorithm engineer, focusing on adaptive noise reduction and speech enhancement.</p>
+                    </div>
+                    <div class="bg-gray-800/60 p-8 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-200 border border-gray-700">
+                        <img src="js/image/wrc.jpg" alt="Martin Wang" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-gray-600">
+                        <h5 class="font-bold text-2xl text-white mb-2">Martin Wang</h5>
+                        <p class="text-blue-400 text-lg">Hardware &amp; Materials Engineering</p>
+                        <p class="text-gray-400 text-sm mt-3">Responsible for product structure design, material selection, and manufacturing optimization.</p>
+                    </div>
+                    <div class="bg-gray-800/60 p-8 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-300 border border-gray-700">
+                        <img src="js/image/xyc.jpg" alt="Jack Xia" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-gray-600">
+                        <h5 class="font-bold text-2xl text-white mb-2">Jack Xia</h5> <p class="text-blue-400 text-lg">Marketing &amp; Finance</p>
+                        <p class="text-gray-400 text-sm mt-3">Leads go-to-market strategy, business model design, and financial planning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer class="bg-black text-gray-500 py-12 text-center border-t border-gray-800">
         <p>&copy; 2025 Aurix Team. Created for the Conrad Challenge – Innovation Phase.</p>
@@ -168,7 +165,6 @@
     </footer>
 
     <script>
-
         // Intersection Observer for fade-in-up animations
         const observerOptions = {
             root: null,
