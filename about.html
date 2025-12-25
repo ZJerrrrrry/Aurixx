@@ -115,6 +115,23 @@
             height: 100%;
             z-index: -1;
         }
+
+        /* NEW: tiny hero bg */
+        .hero-section {
+            background: linear-gradient(180deg, #1A202C 0%, #0d1117 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 35% 35%, rgba(30, 64, 175, 0.18) 0%, transparent 65%),
+                        radial-gradient(circle at 70% 55%, rgba(167, 139, 250, 0.14) 0%, transparent 70%);
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -131,31 +148,111 @@
         </div>
     </nav>
 
-    <div class="pt-20">
+    <!-- NEW: about hero (keeps your style, adds hook + CTA) -->
+    <header class="hero-section pt-28 pb-14">
+        <div class="hero-overlay"></div>
+        <div class="bg-pattern-dots"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-fade-in-up">
+                    About Us: <span class="gradient-text">Team Aurix</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 animate-fade-in-up delay-200">
+                    We build Aurix exclusively for low-income communities—blue-collar workers and delivery riders who face hazardous noise every day.
+                    Our focus is simple: affordable access, safety in real environments, and dignity without stigma.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+                    <a href="story.html" class="btn-glow">Our story</a>
+                    <a href="model.html" class="btn-glow">See the prototype</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="pt-6">
+
+        <!-- KEEP: your team section, but upgraded layout + consistency -->
         <section id="team" class="py-24 relative overflow-hidden">
             <div class="bg-pattern-dots"></div>
             <div class="container mx-auto px-6 relative z-10 text-center">
-                <h3 class="text-4xl font-bold mb-16 gradient-text animate-fade-in-up">Meet Our Innovator Team</h3>
+                <h3 class="text-4xl font-bold mb-6 gradient-text animate-fade-in-up">Meet Our Innovator Team</h3>
+                <p class="max-w-3xl mx-auto text-gray-300 leading-relaxed mb-14 animate-fade-in-up delay-100">
+                    A small team, tightly aligned. We combine AI, hardware engineering, and go-to-market strategy to make Aurix accessible and practical.
+                </p>
+
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="bg-gray-800/60 p-8 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-100 border border-gray-700">
                         <img src="js/image/zjr.jpg" alt="Jerry Zhang" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-gray-600">
                         <h5 class="font-bold text-2xl text-white mb-2">Jerry Zhang</h5>
                         <p class="text-blue-400 text-lg">AI Algorithm R&amp;D</p>
-                        <p class="text-gray-400 text-sm mt-3">Lead algorithm engineer, focusing on adaptive noise reduction and speech enhancement.</p>
+                        <p class="text-gray-400 text-sm mt-3">
+                            Focuses on adaptive noise reduction and speech enhancement for noisy real-world environments.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-2 justify-center">
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Noise Reduction</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Speech Enhancement</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Evaluation</span>
+                        </div>
                     </div>
+
                     <div class="bg-gray-800/60 p-8 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-200 border border-gray-700">
                         <img src="js/image/wrc.jpg" alt="Martin Wang" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-gray-600">
                         <h5 class="font-bold text-2xl text-white mb-2">Martin Wang</h5>
                         <p class="text-blue-400 text-lg">Hardware &amp; Materials Engineering</p>
-                        <p class="text-gray-400 text-sm mt-3">Responsible for product structure design, material selection, and manufacturing optimization.</p>
+                        <p class="text-gray-400 text-sm mt-3">
+                            Designs structure, selects materials, and optimizes manufacturing for low cost and easy maintenance.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-2 justify-center">
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Prototyping</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Materials</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Manufacturing</span>
+                        </div>
                     </div>
+
                     <div class="bg-gray-800/60 p-8 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-300 border border-gray-700">
                         <img src="js/image/xyc.jpg" alt="Jack Xia" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-gray-600">
-                        <h5 class="font-bold text-2xl text-white mb-2">Jack Xia</h5> <p class="text-blue-400 text-lg">Marketing &amp; Finance</p>
-                        <p class="text-gray-400 text-sm mt-3">Leads go-to-market strategy, business model design, and financial planning.</p>
+                        <h5 class="font-bold text-2xl text-white mb-2">Jack Xia</h5>
+                        <p class="text-blue-400 text-lg">Marketing &amp; Finance</p>
+                        <p class="text-gray-400 text-sm mt-3">
+                            Leads go-to-market strategy, business model design, and financial planning for scalable access.
+                        </p>
+                        <div class="mt-5 flex flex-wrap gap-2 justify-center">
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">GTM</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Partnerships</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-gray-900/50 border border-gray-700 text-gray-300">Finance</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- NEW: CTA row -->
+                <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
+                    <a href="impact.html" class="btn-glow">See our social impact</a>
+                    <a href="model.html" class="btn-glow">View the innovation model</a>
+                </div>
             </div>
+              <!-- NEW: Contact / Email -->
+            <section id="contact" class="py-20 relative overflow-hidden">
+                <div class="bg-pattern-dots"></div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-3xl overflow-hidden shadow-2xl p-10 border border-blue-700/50 animate-fade-in-up">
+                        <h3 class="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">Contact</h3>
+                        <p class="text-center text-gray-300 mb-10">
+                            Want to learn more? Email us anytime!
+                        </p>
+
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-1">
+                            <a href="mailto:xiayichenjack@163.com"
+                               class="btn-glow">
+                                Email: xiayichenjack@163.com
+                            </a>
+                        </div>
+
+                        <p class="text-center text-gray-500 text-sm mt-6">
+                            We respond within 24–48 hours.
+                        </p>
+                    </div>
+                </div>
+            </section>
         </section>
     </div>
 
