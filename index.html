@@ -24,7 +24,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: 70vh;
             text-align: center;
         }
         .hero-overlay {
@@ -153,14 +153,74 @@
     <header class="hero-section">
         <div class="hero-overlay"></div>
         <div class="relative z-10 p-8">
-            <h2 class="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in-up"><span class="gradient-text">Hear</span> the world, starting from the <span class="gradient-text">heart</span></h2>
-            <p class="text-xl md:text-3xl opacity-90 mb-10 animate-fade-in-up delay-200">Breaking cost and stigma—redefining hearing devices for low-income communities</p>
+            <!-- ✅ 保持你的标题不变 -->
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-6 mt-20 animate-fade-in-up">
+                <span class="gradient-text">Hear</span> the world, starting from the <span class="gradient-text">heart</span>
+            </h2>
+            <p class="text-xl md:text-3xl opacity-90 mb-10 animate-fade-in-up delay-200">
+                Breaking cost and stigma—redefining hearing devices for low-income communities
+            </p>
             <a href="model.html" class="btn-glow animate-fade-in-up delay-400">Explore the Innovation</a>
         </div>
     </header>
 
-    <div class="section-divider container mx-auto"></div>
+    <!-- NEW: Quick value props (cards) -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="bg-pattern-dots"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-3 gap-10 text-center -mt-16">
+                <div class="bg-gray-800/60 p-10 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-100 border border-gray-700">
+                    <div class="text-blue-400 text-5xl mb-6">⚙️</div>
+                    <h3 class="text-2xl font-bold mb-2">Low-cost architecture</h3>
+                    <!-- ✅ 已按要求删除小内容 -->
+                </div>
 
+                <div class="bg-gray-800/60 p-10 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-200 border border-blue-600">
+                    <div class="text-blue-400 text-5xl mb-6">🧠</div>
+                    <h3 class="text-2xl font-bold mb-2">AI noise reduction</h3>
+                    <!-- ✅ 已按要求删除小内容 -->
+                </div>
+
+                <div class="bg-gray-800/60 p-10 rounded-2xl shadow-xl card-glow animate-fade-in-up delay-300 border border-gray-700">
+                    <div class="text-blue-400 text-5xl mb-6">🔄</div>
+                    <h3 class="text-2xl font-bold mb-2">Two modes, one device</h3>
+                    <!-- ✅ 已按要求删除小内容 -->
+                </div>
+            </div>
+
+            <div class="mt-16 max-w-5xl mx-auto bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-3xl overflow-hidden shadow-2xl p-10 border border-blue-700/50 animate-fade-in-up delay-400">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-gray-800/50 p-6 rounded-2xl border border-gray-700">
+                        <div class="text-blue-400 text-4xl mb-2">🎯</div>
+                        <h4 class="text-xl font-bold mb-2">Who it’s for</h4>
+                        <!-- ✅ 改成低收入人群 -->
+                        <p class="text-gray-400 leading-relaxed">
+                            Low-income communities who need clearer speech and safer listening in noisy environments.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-2xl border border-gray-700">
+                        <div class="text-blue-400 text-4xl mb-2">💰</div>
+                        <h4 class="text-xl font-bold mb-2">Affordability</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Designed to break the price barrier and reduce stigma—accessible without sacrificing usability.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-2xl border border-gray-700">
+                        <div class="text-blue-400 text-4xl mb-2">🧪</div>
+                        <h4 class="text-xl font-bold mb-2">Evidence</h4>
+                        <p class="text-gray-400 leading-relaxed">
+                            Prototype hardware + MFCC comparisons and demos to validate noise reduction performance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="story.html" class="btn-glow">Why we built Aurix</a>
+                    <a href="about.html" class="btn-glow">Meet the team</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="bg-black text-gray-500 py-12 text-center border-t border-gray-800">
         <p>&copy; 2025 Aurix Team</p>
@@ -168,7 +228,6 @@
     </footer>
 
     <script>
-
         // Intersection Observer for fade-in-up animations
         const observerOptions = {
             root: null,
